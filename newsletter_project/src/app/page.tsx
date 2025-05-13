@@ -65,42 +65,42 @@ export default function Home() {
   return (
     <>
       <Toaster position="top-center" />
-      <div className="flex items-center justify-center">
-        <div className="newLetterContainer shadow-lg w-[1440px] h-[768px]  flex items-center justify-center ">
-          <div className="textContainer p-[61px] ">
-            <h1 className="text-[48px] font-bold text-black w-[495px] leading-12 mb-[61px]">
+      <div className="flex items-center justify-center ">
+        <div className="newLetterContainer shadow-lg w-full max-w-[1440px] h-auto md:h-[768px] flex flex-col md:flex-row items-center justify-center p-4 md:p-0">
+          <div className="textContainer p-6 md:p-[61px]  ">
+            <h1 className="text-[32px] md:text-[48px] font-bold text-black w-full md:w-[495px] leading-tight md:leading-12 mb-6 md:mb-[61px]">
               Get the finest curated abstracts delivered weekly to your inbox
             </h1>
             <div className="keyItems">
-              <ul className="flex flex-col my-0 mx-0 mb-12 p-0 gap-[1.25rem]">
-                <li className="flex items-center gap-[1rem] text-[18px] font-normal">
-                  <Image src={check} alt="" />
+              <ul className="flex flex-col my-0 mx-0 mb-8 md:mb-12 p-0 gap-4 md:gap-[1.25rem]">
+                <li className="flex items-start md:items-center gap-3 md:gap-[1rem] text-[16px] md:text-[18px] font-normal">
+                  <Image src={check} alt="" className="mt-1 md:mt-0" />
                   Exclusive access to new abstract images and collections
                 </li>
-                <li className="flex items-center gap-[1rem] text-[18px] font-normal">
-                  <Image src={check} alt="" />
-                  Unlock special promotion only for subcribers
+                <li className="flex items-start md:items-center gap-3 md:gap-[1rem] text-[16px] md:text-[18px] font-normal">
+                  <Image src={check} alt="" className="mt-1 md:mt-0" />
+                  Unlock special promotion only for subscribers
                 </li>
-                <li className="flex items-center gap-[1rem] text-[18px] font-normal">
-                  <Image src={check} alt="" />
+                <li className="flex items-start md:items-center gap-3 md:gap-[1rem] text-[16px] md:text-[18px] font-normal">
+                  <Image src={check} alt="" className="mt-1 md:mt-0" />
                   Regular dose of artistic inspiration
                 </li>
               </ul>
             </div>
             <div className="form">
               <form
-                className="flex items-center gap-3 mb-[20px]"
+                className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-5 md:mb-[20px]"
                 onSubmit={handleSubmit}>
                 <input
                   type="email"
-                  placeholder="Enter your email "
+                  placeholder="Enter your email"
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-[290px] h-10 px-3.5 py-2.5 font-normal text-sm leading-5 text-[#737373] bg-[#fafafa] rounded border border-[#e5e5e5] "
+                  className="w-full sm:w-[290px] h-10 px-3.5 py-2.5 font-normal text-sm leading-5 text-[#737373] bg-[#fafafa] rounded border border-[#e5e5e5]"
                 />
                 <input
                   type="submit"
                   disabled={isSubmitting}
-                  className={`h-10 bg-[#4338ca] px-[14px] py-[10px] rounded shadow-sm text-white border-none cursor-pointer ${
+                  className={`h-10 bg-[#4338ca] px-[14px] py-[10px] rounded shadow-sm text-white border-none cursor-pointer w-full sm:w-auto ${
                     isSubmitting
                       ? "opacity-70 cursor-not-allowed"
                       : "hover:bg-[#4338ca]/90"
@@ -113,15 +113,19 @@ export default function Home() {
                   {error}
                 </span>
               )}
-              <p className="mt-[20px]">We only send you the best! No spam.</p>
+              <p className="mt-3 md:mt-[20px] text-sm md:text-base">
+                We only send you the best! No spam.
+              </p>
             </div>
           </div>
 
-          <Image
-            src={abstract}
-            alt=" "
-            className="rounded-[20px] h-[608px] w-[592px]"
-          />
+          <div className="mb-6 md:mb-0">
+            <Image
+              src={abstract}
+              alt="Abstract art"
+              className="rounded-[20px] h-auto w-full max-w-[592px] md:h-[608px] md:w-[592px]"
+            />
+          </div>
         </div>
       </div>
     </>
