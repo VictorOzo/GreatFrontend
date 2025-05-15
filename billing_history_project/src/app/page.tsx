@@ -1,4 +1,5 @@
-import NoPayments from "./components/no_payment/page";
+import BillingHistory from "./components/billing_history/page";
+
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
             have any questions
           </p>
         </div>
-        <NoPayments />
+        <BillingHistory/>
       </div>
     </>
   );
