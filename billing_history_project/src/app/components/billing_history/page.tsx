@@ -1,10 +1,11 @@
 import React from "react";
 import billingHistory from "@/data/billing-history.json";
+import "./styles.css";
 
 const BillingHistory = () => {
   return (
-    <div className=" text-left mt-[40px]">
-      <table className="min-w-full bg-white  ">
+    <div className=" mt-[40px]">
+      <table>
         <thead>
           <tr>
             <th>Invoice</th>
@@ -17,8 +18,8 @@ const BillingHistory = () => {
         <tbody>
           {billingHistory.data.map((item, index) => (
             <tr key={index}>
-              <td className="py-2 px-4 ">{item.created_at}</td>
-              <td className="py-2 px-4 ">
+              <td>{item.created_at}</td>
+              <td>
                 <span
                   className={`px-2 py-1 rounded-full text-xs capitalize ${
                     item.status === "paid"
@@ -28,15 +29,15 @@ const BillingHistory = () => {
                   {item.status}
                 </span>
               </td>
-              <td className="py-2 px-4 ">${item.amount}</td>
-              <td className="py-2 px-4 capitalize">{item.plan}</td>
+              <td>${item.amount}</td>
+              <td>{item.plan}</td>
 
-              <td className="py-2 px-4">
+              <td >
                 <a
                   href={item.invoice_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-indigo-700 hover:underline">
+                  className="text-indigo-700 hover:underline ">
                   Download
                 </a>
               </td>

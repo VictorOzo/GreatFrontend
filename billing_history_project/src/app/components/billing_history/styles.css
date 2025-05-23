@@ -1,0 +1,19 @@
+table {
+  min-width: 100%;
+  border: 2px solid #ddd;
+  border-collapse: separate;
+  border-radius: 20px;
+}
+
+th,
+td {
+  padding: 20px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+td:last-child {
+  text-align: right;
+}
+tr:last-child td {
+  border-bottom: none;
+}
