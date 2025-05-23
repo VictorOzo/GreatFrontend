@@ -11,11 +11,20 @@ interface BillingItem {
   id: string;
 }
 
-interface BillingHistoryProps {
+interface BillingHistory {
   data: BillingItem[];
 }
 
-const BillingHistory: React.FC<BillingHistoryProps> = () => {
+const formatDate = (dateString: string | Date): string => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+};
+
+export default function BillingHistory() {
   return (
     <div className="mt-[40px] overflow-x-auto">
       <table className="w-full">
@@ -81,16 +90,4 @@ const BillingHistory: React.FC<BillingHistoryProps> = () => {
       </table>
     </div>
   );
-};
-
-
-const formatDate = (dateString: string | Date): string => {
-  const date = new Date(dateString);
-  return date.toLocaleDateString("en-US", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
-};
-
-export default BillingHistory;
+}
